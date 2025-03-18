@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<VBox prefHeight="600.0" prefWidth="800.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.yohi.lapura_evaluation_system.RecommendedSubjectsController">
+
+    <children>
+        <!-- Sage Green Header -->
+        <HBox style="-fx-background-color: #2E5E3A; -fx-background-radius: 0 0 25 25;" alignment="CENTER">
+            <padding>
+                <Insets top="25" bottom="25" left="40" right="40"/>
+            </padding>
+            <children>
+                <Label text="Academic Pathway Advisor" textFill="#F5F0E6">
+                    <font>
+                        <Font name="System Bold" size="24" />
+                    </font>
+                    <effect>
+                        <DropShadow color="rgba(0,0,0,0.2)" radius="3" spread="0.2" />
+                    </effect>
+                    <padding>
+                        <Insets left="15" />
+                    </padding>
+                </Label>
+            </children>
+        </HBox>
+
+        <AnchorPane fx:id="rootPane" style="-fx-background-color: #F5F0E6;" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="30" right="30" bottom="30" left="30"/>
+            </padding>
+            <children>
+                <!-- Student Profile Section -->
+                <VBox spacing="15" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                    <children>
+                        <Label text="STUDENT PROFILE" style="-fx-text-fill: #2E5E3A;">
+                            <font>
+                                <Font name="System Bold" size="18" />
+                            </font>
+                        </Label>
+
+                        <Separator style="-fx-background-color: #A3B899; -fx-padding: 0 0 5 0;"/>
+
+                        <!-- Student Details Grid -->
+                        <GridPane hgap="30" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints prefWidth="150" halignment="RIGHT"/>
+                                <ColumnConstraints prefWidth="300" halignment="LEFT"/>
+                            </columnConstraints>
+
+                            <children>
+                                <Label text="Name:" style="-fx-text-fill: #4A4A4A; -fx-font-weight: bold;"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <Label fx:id="nameLabel" text="Student Name"
+                                       style="-fx-text-fill: #2E5E3A;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="ID Number:" style="-fx-text-fill: #4A4A4A; -fx-font-weight: bold;"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <Label fx:id="idLabel" text="ID Number"
+                                       style="-fx-text-fill: #2E5E3A;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                <Label text="Program:" style="-fx-text-fill: #4A4A4A; -fx-font-weight: bold;"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <Label fx:id="programLabel" text="Program"
+                                       style="-fx-text-fill: #2E5E3A;" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+
+                <!-- Academic Plan Section -->
+                <VBox spacing="15" AnchorPane.topAnchor="160" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                      AnchorPane.bottomAnchor="80">
+                    <children>
+                        <Label text="ACADEMIC STRATEGY" style="-fx-text-fill: #2E5E3A;">
+                            <font>
+                                <Font name="System Bold" size="18" />
+                            </font>
+                        </Label>
+
+                        <Separator style="-fx-background-color: #A3B899;"/>
+
+                        <TextArea fx:id="recommendationTextArea"
+                                  style="-fx-control-inner-background: #FAF7F2;
+                                         -fx-border-color: #A3B899;
+                                         -fx-border-radius: 8;
+                                         -fx-background-radius: 8;
+                                         -fx-font-family: 'Segoe UI';
+                                         -fx-font-size: 14;
+                                         -fx-padding: 15;"
+                                  editable="false"
+                                  wrapText="true"
+                                  prefHeight="300">
+                            <effect>
+                                <DropShadow color="rgba(46,94,58,0.1)" radius="8" spread="0.1"/>
+                            </effect>
+                        </TextArea>
+                    </children>
+                </VBox>
+
+                <!-- Action Buttons -->
+                <HBox spacing="20" alignment="CENTER_RIGHT" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0">
+                    <children>
+                        <Button fx:id="printButton" text="Export Plan"
+                                style="-fx-background-color: #2E5E3A; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"
+                                minWidth="140" minHeight="40">
+                            <effect>
+                                <DropShadow color="rgba(46,94,58,0.3)" radius="5" spread="0.2"/>
+                            </effect>
+                        </Button>
+                        <Button fx:id="closeButton" text="Close Advisor"
+                                style="-fx-background-color: #B6A893; -fx-text-fill: #2E5E3A; -fx-font-weight: bold; -fx-background-radius: 8;"
+                                minWidth="140" minHeight="40">
+                            <effect>
+                                <InnerShadow color="rgba(0,0,0,0.05)" radius="3"/>
+                            </effect>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

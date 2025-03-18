@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.yohi.lapura_evaluation_system.AppController">
+
+    <!-- Enhanced Header with Botanical Accent -->
+    <HBox alignment="CENTER" style="-fx-background-color: #2E5E3A; -fx-background-radius: 0 0 25 25;">
+        <padding>
+            <Insets top="25" bottom="25" left="40" right="40"/>
+        </padding>
+        <children>
+            <Label text="Academic Enrollment Gateway" style="-fx-text-fill: #F5F0E6; -fx-font-weight: bold;">
+                <font>
+                    <Font size="26" name="Segoe UI Semibold"/>
+                </font>
+                <effect>
+                    <DropShadow color="rgba(0,0,0,0.15)" radius="4" spread="0.15"/>
+                </effect>
+                <padding>
+                    <Insets left="20" />
+                </padding>
+            </Label>
+        </children>
+    </HBox>
+
+    <AnchorPane fx:id="rootPane" style="-fx-background-color: #F5F0E6;" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets top="35" bottom="35" left="45" right="45"/>
+        </padding>
+
+        <!-- Main Form Container -->
+        <VBox spacing="30" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+            <!-- Student Profile Card -->
+            <VBox style="-fx-background-color: #FAF7F2; -fx-background-radius: 14; -fx-effect: dropshadow(gaussian, rgba(70,115,78,0.1), 12, 0, 0, 6);">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                <children>
+                    <Label text="STUDENT PROFILE" style="-fx-text-fill: #2E5E3A; -fx-font-size: 20; -fx-font-weight: bold;">
+                        <padding>
+                            <Insets bottom="10"/>
+                        </padding>
+                    </Label>
+                    <Separator style="-fx-background-color: #A3B899; -fx-padding: 0 0 12 0;"/>
+
+                    <GridPane hgap="25" vgap="18">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="160" halignment="RIGHT"/>
+                            <ColumnConstraints prefWidth="320" halignment="LEFT"/>
+                        </columnConstraints>
+
+                        <children>
+                            <Label text="Full Name:" style="-fx-text-fill: #5A5A5A; -fx-font-weight: bold;"/>
+                            <TextField fx:id="nameField" promptText="Enter full name"
+                                       style="-fx-background-radius: 8; -fx-border-color: #9BBAA7; -fx-pref-height: 42;"
+                                       GridPane.columnIndex="1"/>
+
+                            <Label text="Student ID:" style="-fx-text-fill: #5A5A5A; -fx-font-weight: bold;" GridPane.rowIndex="1"/>
+                            <TextField fx:id="idNumberField" promptText="Enter student ID"
+                                       style="-fx-background-radius: 8; -fx-border-color: #9BBAA7; -fx-pref-height: 42;"
+                                       GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                            <Label text="Academic Program:" style="-fx-text-fill: #5A5A5A; -fx-font-weight: bold;" GridPane.rowIndex="2"/>
+                            <ComboBox fx:id="programComboBox" promptText="Select program"
+                                      style="-fx-background-radius: 8; -fx-border-color: #9BBAA7; -fx-pref-height: 42;"
+                                      GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        </children>
+                    </GridPane>
+                </children>
+            </VBox>
+
+            <!-- Enrollment Details Card -->
+            <VBox style="-fx-background-color: #FAF7F2; -fx-background-radius: 14; -fx-effect: dropshadow(gaussian, rgba(70,115,78,0.1), 12, 0, 0, 6);">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                <children>
+                    <Label text="ENROLLMENT DETAILS" style="-fx-text-fill: #2E5E3A; -fx-font-size: 20; -fx-font-weight: bold;">
+                        <padding>
+                            <Insets bottom="10"/>
+                        </padding>
+                    </Label>
+                    <Separator style="-fx-background-color: #A3B899; -fx-padding: 0 0 12 0;"/>
+
+                    <GridPane hgap="25" vgap="18">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="160" halignment="RIGHT"/>
+                            <ColumnConstraints prefWidth="320" halignment="LEFT"/>
+                        </columnConstraints>
+
+                        <children>
+                            <Label text="Enrollment Status:" style="-fx-text-fill: #5A5A5A; -fx-font-weight: bold;"/>
+                            <ComboBox fx:id="newStudentComboBox" promptText="Select status"
+                                      style="-fx-background-radius: 8; -fx-border-color: #9BBAA7; -fx-pref-height: 42;"
+                                      GridPane.columnIndex="1"/>
+
+                            <Label text="Academic Year:" style="-fx-text-fill: #5A5A5A; -fx-font-weight: bold;" GridPane.rowIndex="1"/>
+                            <ComboBox fx:id="yearLevelComboBox" promptText="Select year" disable="true"
+                                      style="-fx-background-color: #E8E3D9; -fx-border-color: #9BBAA7; -fx-background-radius: 8; -fx-pref-height: 42;"
+                                      GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                            <Label text="Current Semester:" style="-fx-text-fill: #5A5A5A; -fx-font-weight: bold;" GridPane.rowIndex="2"/>
+                            <ComboBox fx:id="semesterComboBox" promptText="Select semester" disable="true"
+                                      style="-fx-background-color: #E8E3D9; -fx-border-color: #9BBAA7; -fx-background-radius: 8; -fx-pref-height: 42;"
+                                      GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                            <Label text="Course History:" style="-fx-text-fill: #5A5A5A; -fx-font-weight: bold;" GridPane.rowIndex="3"/>
+                            <TextField fx:id="subjectsField" promptText="Recent subjects completed" disable="true"
+                                       style="-fx-background-color: #E8E3D9; -fx-border-color: #9BBAA7; -fx-background-radius: 8; -fx-pref-height: 42;"
+                                       GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        </children>
+                    </GridPane>
+                </children>
+            </VBox>
+        </VBox>
+
+        <!-- Loading Overlay -->
+        <StackPane fx:id="loadingPane" visible="false" style="-fx-background-color: rgba(245,240,230,0.92);">
+            <VBox alignment="CENTER" spacing="20">
+                <ProgressIndicator progress="-1" style="-fx-progress-color: #3E7350;" prefWidth="55" prefHeight="55"/>
+                <Label text="Finalizing Enrollment..." style="-fx-text-fill: #2E5E3A; -fx-font-weight: bold; -fx-font-size: 18;"/>
+            </VBox>
+        </StackPane>
+
+        <!-- Action Buttons -->
+        <HBox spacing="25" alignment="CENTER_RIGHT" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0">
+            <Button fx:id="cancelButton" text="Cancel Process"
+                    style="-fx-background-color: #B6A893; -fx-text-fill: #2E5E3A; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 14 28;"
+                    minWidth="140">
+                <effect>
+                    <DropShadow color="rgba(0,0,0,0.08)" radius="4" spread="0.1"/>
+                </effect>
+            </Button>
+            <Button fx:id="nextButton" text="Continue Enrollment"
+                    style="-fx-background-color: #3E7350; -fx-text-fill: #FAF7F2; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 14 28;"
+                    minWidth="180">
+                <effect>
+                    <DropShadow color="rgba(62,115,80,0.25)" radius="10" spread="0.15"/>
+                </effect>
+            </Button>
+        </HBox>
+    </AnchorPane>
+</VBox>

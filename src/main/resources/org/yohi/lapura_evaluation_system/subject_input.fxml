@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #F5F0E6;"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.yohi.lapura_evaluation_system.SubjectSelectionController">
+    <children>
+        <!-- Emerald Green Header -->
+        <HBox alignment="CENTER" prefHeight="80.0" style="-fx-background-color: #2E5E3A; -fx-background-radius: 0 0 25 25;"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                    <image>
+                        <Image url="@academic-shield.png" />
+                    </image>
+                </ImageView>
+                <Label text="Course History Review" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24" />
+                    </font>
+                    <effect>
+                        <DropShadow color="rgba(0,0,0,0.15)" radius="3" spread="0.2" />
+                    </effect>
+                    <padding>
+                        <Insets left="15" />
+                    </padding>
+                </Label>
+            </children>
+        </HBox>
+
+        <!-- Instructions -->
+        <Label text="Please select completed courses and indicate academic performance:"
+               style="-fx-text-fill: #4A4A4A; -fx-font-family: 'Segoe UI'; -fx-font-size: 14;"
+               AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="90.0">
+            <padding>
+                <Insets bottom="10" />
+            </padding>
+        </Label>
+
+        <!-- Subjects Container -->
+        <ScrollPane fitToWidth="true" prefHeight="300.0"
+                    style="-fx-background: #FAF7F2; -fx-border-color: #A3B899; -fx-border-radius: 8;"
+                    AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="120.0">
+            <content>
+                <VBox fx:id="subjectsContainer" spacing="12" style="-fx-background-color: #FAF7F2; -fx-padding: 15;">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                </VBox>
+            </content>
+            <effect>
+                <DropShadow color="rgba(46,94,58,0.1)" radius="8" spread="0.1" />
+            </effect>
+        </ScrollPane>
+
+        <!-- Loading Overlay -->
+        <StackPane fx:id="loadingPane" visible="false"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+                   style="-fx-background-color: rgba(245,240,230,0.9);">
+            <VBox alignment="CENTER" spacing="15">
+                <ImageView fx:id="loadingGif" fitWidth="100" fitHeight="100">
+                    <image>
+                        <Image url="@loading.gif" />
+                    </image>
+                </ImageView>
+                <Label text="Analyzing Academic History..."
+                       style="-fx-text-fill: #2E5E3A; -fx-font-size: 16; -fx-font-weight: bold;"/>
+            </VBox>
+        </StackPane>
+
+        <!-- Action Buttons -->
+        <HBox alignment="CENTER" spacing="20"
+              AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+            <children>
+                <Button fx:id="backButton" text="Previous Step"
+                        style="-fx-background-color: #B6A893; -fx-text-fill: #2E5E3A; -fx-font-weight: bold; -fx-background-radius: 8;"
+                        minWidth="140" minHeight="40">
+                    <effect>
+                        <InnerShadow color="rgba(0,0,0,0.05)" radius="3" />
+                    </effect>
+                </Button>
+                <Button fx:id="submitButton" text="Submit Review"
+                        style="-fx-background-color: #2E5E3A; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"
+                        minWidth="140" minHeight="40">
+                    <effect>
+                        <DropShadow color="rgba(46,94,58,0.3)" radius="5" spread="0.2" />
+                    </effect>
+                </Button>
+            </children>
+        </HBox>
+
+        <!-- Status Footer -->
+        <Label text="* Required academic information" style="-fx-text-fill: #2E5E3A; -fx-font-family: 'Segoe UI';"
+               AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="40.0">
+            <font>
+                <Font size="12" />
+            </font>
+            <effect>
+                <DropShadow color="rgba(46,94,58,0.1)" height="2" radius="1" width="2" />
+            </effect>
+        </Label>
+    </children>
+</AnchorPane>
