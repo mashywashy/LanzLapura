@@ -88,15 +88,15 @@ public class AppController {
         semesterComboBox.getItems().addAll("1", "2");
 
         // Add listener to newStudentComboBox to enable/disable subjectsField
-        newStudentComboBox.setOnAction(_ -> updateSubjectsFieldState());
+        newStudentComboBox.setOnAction(e -> updateSubjectsFieldState());
 
         // Add listeners to year and semester ComboBoxes
-        yearLevelComboBox.setOnAction(_ -> updateSubjectsFieldState());
-        semesterComboBox.setOnAction(_ -> updateSubjectsFieldState());
+        yearLevelComboBox.setOnAction(e -> updateSubjectsFieldState());
+        semesterComboBox.setOnAction(e -> updateSubjectsFieldState());
 
         // Handle Next button click
-        nextButton.setOnAction(_ -> handleNextButton());
-        cancelButton.setOnAction(_ -> handleCancelButton());
+        nextButton.setOnAction(e -> handleNextButton());
+        cancelButton.setOnAction(e -> handleCancelButton());
 
 
         // Initialize service handlers

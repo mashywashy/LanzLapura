@@ -155,6 +155,7 @@ public class SubjectSelectionController {
         subjectEntries.stream()
                 .map(SubjectEntry::getSubject)
                 .filter(Objects::nonNull)
+                .sorted()
                 .forEach(selectedSubjects::add);
     }
 
