@@ -1,5 +1,13 @@
 package org.yohi.lapura_evaluation_system;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.yohi.lapura_evaluation_system.API.AIService;
+import org.yohi.lapura_evaluation_system.API.Subject;
+
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -14,13 +22,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import org.yohi.lapura_evaluation_system.API.AIService;
-import org.yohi.lapura_evaluation_system.API.Subject;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class AppController {
 
@@ -253,7 +254,6 @@ public class AppController {
                 return;
             }
             int subjectCount = Integer.parseInt(subjectsField.getText());
-            recommendationService.restart();
 
             // Move this inside the else block
             openSubjectSelectionScreen(subjectCount, program, name, id, yearLevel, semester);
@@ -262,7 +262,7 @@ public class AppController {
         if ("Yes".equals(isNewStudent)) {
         } else {
             // For existing students - collect subjects
-            recommendationService.restart();
+           // recommendationService.restart();
         }
     }
 
