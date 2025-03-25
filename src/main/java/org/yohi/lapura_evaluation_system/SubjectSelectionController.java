@@ -1,5 +1,16 @@
 package org.yohi.lapura_evaluation_system;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+import org.yohi.lapura_evaluation_system.API.AIService;
+
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -18,9 +29,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.yohi.lapura_evaluation_system.API.AIService;
-import java.io.IOException;
-import java.util.*;
 
 public class SubjectSelectionController {
 
@@ -50,6 +58,7 @@ public class SubjectSelectionController {
                     }
 
                     AIService aiService = new AIService();
+                    System.out.println("Requesting recommendations for: " + program + ", " + year + ", " + semester + ", " + statusMap);
                     return aiService.getRecommendations(program, year, semester, statusMap);
                 }
             };
@@ -181,7 +190,35 @@ public class SubjectSelectionController {
             statusMap.put(subject, entry.isPassed());
         }
 
-        recommendationService.restart();
+        // Show loading indicators
+        loadingPane.setVisible(true);
+        loadingGif.setVisible(true);
+        
+        // Create and run a new thread to prevent UI freezing
+        new Thread(() -> {
+            try {
+                // Use the same direct approach as in Test.java
+                AIService aiService = new AIService();
+                System.out.println("Requesting recommendations for: " + program + ", " + year + ", " + semester + ", " + statusMap);
+                String response = aiService.getRecommendations(program, year, semester, statusMap);
+                
+                // Update UI on JavaFX thread
+                javafx.application.Platform.runLater(() -> {
+                    loadingPane.setVisible(false);
+                    loadingGif.setVisible(false);
+                    openRecommendedSubjectsWindow(response);
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+                // Handle errors on JavaFX thread
+                javafx.application.Platform.runLater(() -> {
+                    loadingPane.setVisible(false);
+                    loadingGif.setVisible(false);
+                    showAlert(AlertType.ERROR, "Error", 
+                            "Failed to generate recommendations: " + e.getMessage());
+                });
+            }
+        }).start();
     }
 
     private void openRecommendedSubjectsWindow(String recommendation) {
